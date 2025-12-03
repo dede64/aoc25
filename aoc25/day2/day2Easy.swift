@@ -18,7 +18,7 @@ class Day2Easy {
                 let strVal = String(i)
                 let isEvenLength = strVal.count % 2 == 0 && strVal.count > 1
                 if isEvenLength {
-                    let parts = splitInHalf(strVal)
+                    let parts = Helpers.splitInHalf(strVal)
                     
                     if parts.0 == parts.1 {
                         solution += i
@@ -28,14 +28,6 @@ class Day2Easy {
         }
         
         print(solution)
-    }
-    
-    func splitInHalf(_ s: String) -> (String, String) {
-        let midOffset = s.count / 2
-        let midIndex = s.index(s.startIndex, offsetBy: midOffset)
-        let left = String(s[..<midIndex])
-        let right = String(s[midIndex...])
-        return (left, right)
     }
     
     let easyInput: String = """
