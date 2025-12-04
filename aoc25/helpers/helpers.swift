@@ -48,4 +48,12 @@ final class Helpers {
         }
         return result
     }
+    
+    /// Adds value to the position in the array
+    /// If it is outside of bounds, it does not fail
+    static func safeAdd(_ value: Int, to values: inout [[Int]], at: (Int, Int), with size: (Int, Int)) {
+        if at.0 >= 0, at.0 < size.0, at.1 >= 0, at.1 < size.1 {
+            values[at.0][at.1] += value
+        }
+    }
 }
