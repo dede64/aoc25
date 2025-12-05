@@ -56,4 +56,25 @@ final class Helpers {
             values[at.0][at.1] += value
         }
     }
+    
+    struct Range: Comparable {
+        var start: Int
+        var end: Int
+        
+        static func < (lhs: Range, rhs: Range) -> Bool {
+            lhs.start < rhs.start
+        }
+        
+        static func canBeMerged(lhs: Range, rhs: Range) -> Bool {
+            return lhs.end >= rhs.start - 1 && lhs.start <= rhs.end + 1
+        }
+        
+        func contains(_ value: Int) -> Bool {
+            value >= start && value <= end
+        }
+        
+        var length: Int {
+            end - start + 1
+        }
+    }
 }
